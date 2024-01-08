@@ -20,14 +20,15 @@ There are four phases to setting up the Pi:
 
 [sample setup variables](doc/teslausb_setup_variables.conf)
 
-- The changes I made are to comment out the use of CIFS and uncomment rclone archiving
+- The changes I made are to comment out the use of CIFS and uncomment rclone archiving, we will update the other variables later in the set up. 
 
 ![addrclone](https://github.com/kamelne/teslausb_OneDrive/assets/57120024/cb4c6846-9bed-4f45-80da-c4338b0e27c4)
 
   
-- Choose Partition Sizing, I choose to allocate 95% of the drive for Camera storage and 5% for Music. You can change these number if you plan on having music on your drive.
+- Choose Partition Sizing, I choose most of the Camera storage and some for BoomBox files. You can change these number if you plan on having music on your drive. *I have not tested the Music folder syncing with OneDrve
 
-![partitionsizing](https://github.com/kamelne/teslausb_OneDrive/assets/57120024/ae6a730a-4537-4782-a63a-6e8565cf17ef)
+![partitionsizing](https://github.com/kamelne/teslausb_OneDrive/assets/57120024/2222a720-c662-4805-89d1-5679e1a5e06c)
+
 
 - Set Wifi SSID and Password, replace everything within the quotes with you SSID and Password
 
@@ -37,3 +38,52 @@ There are four phases to setting up the Pi:
 
 ![exfat](https://github.com/kamelne/teslausb_OneDrive/assets/57120024/f580a8b8-e777-466f-8df5-6b05f4e0f865)
 
+
+5. After the changes were saved to the files and replace on the SD card you can eject it and insert it into the Raspberry Pi, power on the pi and wait for the teslausb to be installed. Could take over five mintues, to know when the drive is connected you can check if it is recognized on you router or if you are able to successfully able to ssh in the next step.
+
+### Get a shell on the Pi.
+These steps are you windows, for mac you can see [barjohn's guide](https://github.com/barjohn/MarconeTeslausb/blob/master/doc/GetShellWithoutMonitorOnWindows.md)
+
+1. Launch PowerShell as administrator, right click on title bar and check under properties that 'Use Legacy console" is unchecked.
+2. Run this command and press Y when promted
+
+  `Set-ExecutionPolicy -Scope CurrentUser Unrestricted`
+
+3. In PowerShell ssh to connect to the raspberry pi:
+  `ssh pi@raspberrypi.local` 
+
+  if you get a 'host id' error delete the "users\USERNAME\.ssh\known_hosts" file
+
+  default password is:   `raspberry`
+
+* It is reccomened to change the password but not necessary, this can be done by enter `passwd` and following the steps
+
+  4. Become root user by running
+  
+  `sudo -i`
+  
+  *you will remain in the root user acount for the rest of the steps
+
+  ### Set up the archive for dashcam clips.
+
+1. While still in root user run the following command:
+
+`curl -L https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh | bash`
+
+2. The next step gave me a bit of touble as the rclone config did not launch a browser for me to be able to authenticate my OneDrive account. I will give both methods:
+   a. run the below and follow the steps:
+
+   `rclone config`
+
+     1. create new remote option 'n'
+     2. name the remote 'ANY_NAME'
+     3. for type of storage use '34'
+     4. Leave  clident_id and client_secret blank, just hit enter
+     5. For region select which is best for you, I am in the US and I used '1'
+     6. Advanced Config 'n'
+     7. web browser 'y' here is where the browser would not launch for me and the provided link did not connect either, if it works for you log into your OneDrive and it should complete the install
+  
+    b. What worked for me:
+   
+  
+  
