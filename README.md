@@ -2,7 +2,7 @@
 
 ## Intro
 
-Raspberry Pi and other [SBCs](## "Single Board Computers") can emulate a USB drive, so can act as a drive for your Tesla to write dashcam footage to. Because the SBC has full access to the emulated drive, it can:
+Using marcone/teslausb and barjohn/MarconeTeslausb I was able configure a Raspberry Pi Zero2 W so that your Tesla thinks it's a USB drive and will write dashcam footage to it. And sync to a Microsoft OneDrive folder using rclon:
 
 - automatically copy the recordings to an archive server when you get home
 - hold both dashcam recordings and music files
@@ -10,9 +10,6 @@ Raspberry Pi and other [SBCs](## "Single Board Computers") can emulate a USB dri
 - serve up a web UI to view or download the recordings
 - retain more than one hour of RecentClips (assuming large enough storage)
 
-This video (not mine) has a nice overview of teslausb and how to install it:
-
-[![teslausb intro and installation](http://img.youtube.com/vi/ETs6r1vKTO8/0.jpg)](http://www.youtube.com/watch?v=ETs6r1vKTO8 "teslausb intro and installation")
 
 If you are interested in having more detailed information about how TeslaUsb works, have a look into the [wiki](https://github.com/marcone/teslausb/wiki).
 
@@ -27,18 +24,16 @@ If you are interested in having more detailed information about how TeslaUsb wor
 
 Required:
 
-- [A Raspberry Pi or other SBC that supports USB OTG](https://github.com/marcone/teslausb/wiki/Hardware).
-- A Micro SD card, at least 64 GB in size, and an adapter (if necessary) to connect the card to your computer.
-- Cable(s) to connect the SBC to the Tesla (USB A/Micro B cable for the Pi Zero, USB A/Micro C cable for Pi 4, other SBCs vary)
+- RasberryPi Zero 2 W
+- A micro SD card, I used 256GB
 
 Optional:
 
-- A case and/or cooler for the SBC. For the Raspberry Pi 4 I like the ["armor case"](https://www.amazon.com/s?k=Raspberry+Pi+4+Armor+Case) (available with or without fans), which appears to do a good job of protecting the Pi while keeping it cool.
-- USB Splitter if you don't want to lose a front USB port. [The Onvian Splitter](https://www.amazon.com/gp/product/B01KX4TKH6) has been reported working by multiple people on reddit. Some SBCs require separate power and data connection, so may require a splitter or a USB hub to connect to the car.
+- a case for the pi
 
 ## Installing
 
-To install teslausb on a Raspberry Pi, it is recommended to use the [prebuilt image](https://github.com/marcone/teslausb/releases) and [one step setup instructions](doc/OneStepSetup.md). For other SBCs, start [here](https://github.com/marcone/teslausb/wiki/Installation)
+[Set Up](doc/SetUp.md) 
 
 ## Contributing
 
