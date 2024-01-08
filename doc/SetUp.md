@@ -95,7 +95,7 @@ These steps are you windows, for mac you can see [barjohn's guide](https://githu
 
         `start rclone.exe config`
 
-     4. Here a browser will launch for you to log into OneDrivem the follow the steps above to complete the setup
+     4. Here a browser will launch for you to log into OneDrive the follow the steps above to complete the setup
      5. locate the conf file created and open with a text editor, default location is
 
         `Users\NAME\AppData\Roaming\rclone`
@@ -116,18 +116,19 @@ These steps are you windows, for mac you can see [barjohn's guide](https://githu
 
         on PowerShell right click the title bar, then edit paste. You should see all the content in the PowerShell nano file
 
-        9. Press 'ctrl + O" to name the file 'rclone.conf' then 'control + X' to exit
-        10. Finally run these commands, you can change the name and path if you would like:
-       ```
-        export RCLONE_DRIVE=onedrive
-        export RCLONE_PATH=TeslaCam
-         
-        rclone mkdir onedrive:TeslaCam"
-        rclone lsd onedrive:
-        ```
-          You should see all the folders in your Onedrive after running the last command. I went ahead and created the 'TeslaCam' folder in my onedrive outside of PowerShell
+     9. Press 'ctrl + O" to name the file 'rclone.conf' then 'control + X' to exit
+     10. Finally run these commands, you can change the name and path if you would like:
 
-        11. Finally run `halt` to shut down the Pi and you are ready to connect to your car
+        
+        export RCLONE_DRIVE=onedrive
+        export RCLONE_PATH=TeslaCam         
+        rclone mkdir onedrive:TeslaCam
+        rclone lsd onedrive:
+        
+
+   You should see all the folders in your Onedrive after running the last command. I went ahead and created the 'TeslaCam' folder in my OneDrive outside of PowerShell
+
+     11. Finally run `halt` to shut down the Pi and you are ready to connect to your car
 
         
          
