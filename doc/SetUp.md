@@ -50,7 +50,8 @@ These steps are you windows, for mac you can see [barjohn's guide](https://githu
   `Set-ExecutionPolicy -Scope CurrentUser Unrestricted`
 
 3. In PowerShell ssh to connect to the raspberry pi:
-  `ssh pi@raspberrypi.local` 
+   
+  `ssh pi@teslausb.local` 
 
   if you get a 'host id' error delete the "users\USERNAME\.ssh\known_hosts" file
 
