@@ -1,5 +1,5 @@
 # Set Up Raspberry PI
-There are four phases to setting up the Pi:
+There are Three phases to setting up the Pi:
 1. Get the OS onto the micro sd card.
 2. Get a shell on the Pi.
 3. Set up the archive for dashcam clips.
@@ -117,5 +117,19 @@ These steps are you windows, for mac you can see [barjohn's guide](https://githu
         on PowerShell right click the title bar, then edit paste. You should see all the content in the PowerShell nano file
 
         9. Press 'ctrl + O" to name the file 'rclone.conf' then 'control + X' to exit
+        10. Finally run these commands, you can change the name and path if you would like:
+       ```
+        export RCLONE_DRIVE=onedrive
+        export RCLONE_PATH=TeslaCam
+         
+        rclone mkdir onedrive:TeslaCam"
+        rclone lsd onedrive:
+        ```
+          You should see all the folders in your Onedrive after running the last command. I went ahead and created the 'TeslaCam' folder in my onedrive outside of PowerShell
+
+        11. Finally run `halt` to shut down the Pi and you are ready to connect to your car
+
+        
+         
   
   
