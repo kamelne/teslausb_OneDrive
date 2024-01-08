@@ -82,10 +82,40 @@ These steps are you windows, for mac you can see [barjohn's guide](https://githu
      4. Leave  client_id and client_secret blank, just hit enter
      5. For region select which is best for you, I am in the US and I used '1'
      6. Advanced Config 'n'
-     7. web browser 'y' here is where the browser would not launch for me and the provided link did not connect either, if it works for you log into your OneDrive and it should complete the install
-     8. If unable to launch browser press 'ctrl + C' to stop the config process
+     7. web browser 'y' here is where the browser would not launch for me and the provided link did not connect either, if it works for you log into your OneDrive. If unable to launch browser press 'ctrl + C' to stop the config process and skip to b.
+     8. Select the correct connect for me '1'
+     9. Select the drive you created earlier '1'
+     10. Then 'Y' for the next two prompts
   
-    b. What worked for me:
+    b. What worked me was creating the rclone.conf file on windows and manually adding it and the directory to the Pi:
    
+     1. Download (rclone for windows](Run rclone.exe config)
+     2. Extract the rclone.exe file to somewhere you can find
+     3. Open Command Prompt as administrator and go to the directory you extracted rclone.exe and run
+
+        `start rclone.exe config`
+
+     4. Here a browser will launch for you to log into OneDrivem the follow the steps above to complete the setup
+     5. locate the conf file created and open with a text editor, default location is
+
+        `Users\NAME\AppData\Roaming\rclone`
+        
+     7. Back on the PowerShell, from the root user check that you are in the root directory with "pwd" then run the following
+
+         ```
+         mkdir /.config
+         cd /.config
+         mkdir rclone
+         cd rclone
+        ```
+         
+     8. Now open nano to create rclone.conif file in Pi
+        ``` nano ```
+
+        open the rclone.conf file on your pc and copy all the contents
+
+        on PowerShell right click the title bar, then edit paste. You should see all the content in the PowerShell nano file
+
+        9. Press 'ctrl + O" to name the file 'rclone.conf' then 'control + X' to exit
   
   
